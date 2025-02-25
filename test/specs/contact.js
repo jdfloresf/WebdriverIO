@@ -20,8 +20,12 @@ describe('Fill form and submit', () => {
         await $('#evf-277-field_66FR384cge-3').setValue("1234567890")
         // Message field
         await $('#evf-277-field_yhGx3FOwr2-4').setValue("Hola esto es una prueba")
+        
+        // debug
+        // browser.debug();
+        
         // Submit
-        await $('#evf-submit-277').click()
+        await $('#evf-submit-277').click();
 
         // Thanks for contacting us! We will be in touch with you shortly	
         await expect($('.everest-forms-notice')).toBeDisplayed();
