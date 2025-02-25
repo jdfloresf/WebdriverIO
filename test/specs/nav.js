@@ -1,5 +1,7 @@
 describe('Navidation Menu', () => {
-    it('Get the text of all menu items & assert them', async () => {
+    it('Get the text of all menu items & assert them - using wait commands', async () => {
+        // browser.pause(1000)
+        
         await browser.url('/');
 
         const expectedLinks = [
@@ -18,6 +20,14 @@ describe('Navidation Menu', () => {
         // const navLinks = await $('#zak-primary-menu').$$('li[id*=menu]');
         
         // Accediendo directamente a los elementos
+        // await $('#zak-primary-menu').waitForDisplayed({ timeout: 1000 });
+
+        // wait until tbe Home text is displayed on the screen
+        await browser.waitUntil(async function() {
+            const homeText = await $('#zak-primary-menu li').getText();
+            return homeText === 'Home';
+        }, { timeoutMsg: "Could not verify the Home test from #zak-primary-menu li"});
+
         const navLinks = await $$('#zak-primary-menu li[id*=menu]');
 
         for (const link of navLinks) {
