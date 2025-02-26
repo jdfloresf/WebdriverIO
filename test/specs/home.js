@@ -1,4 +1,5 @@
 import HomePage from "../pages/home-page";
+import allureReporter from '@wdio/allure-reporter';
 
 describe("Home", () => {
     beforeEach(async () => {
@@ -13,6 +14,7 @@ describe("Home", () => {
     
     it("Open About Page & assert URL", async () => {
         // Open About page
+        allureReporter.addSeverity("critical");
         await HomePage.navigate("about");
 
         // Assert URL
@@ -29,7 +31,8 @@ describe("Home", () => {
         expect(currentUrl).toContain("get-started");
     });
   
-    it("Click logo botton & assert URL DOES NOT contains get-started text", async () => {        
+    it("Click logo botton & assert URL DOES NOT contains get-started text", async () => {     
+        allureReporter.addFeature("Logo verification");   
         await HomePage.imageLogo.click();
 
         // Assert URL contains get-started text
