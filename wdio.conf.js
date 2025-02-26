@@ -27,7 +27,20 @@ export const config = {
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
+        './test/specs/**/iframe.js',
+        './test/specs/**/upload.js'
     ],
+    // Define suites
+    suites: {
+        smoke: [
+            './test/specs/**/home.js',
+            './test/specs/**/contact.js'
+        ],
+        component: [
+            './test/specs/**/nav.js'
+        ]
+    }, 
+
     //
     // ============
     // Capabilities
@@ -185,8 +198,9 @@ export const config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: async function () {
+        browser.setWindowSize(1000, 1000)
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {string} commandName hook command name

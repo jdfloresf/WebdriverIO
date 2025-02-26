@@ -7,7 +7,6 @@ describe("Home", () => {
     });
     
     it("Get title", async () => {
-        
         // Assert title
         await expect(browser).toHaveTitle("Practice E-Commerce Site – SDET Unicorns");
     });
@@ -30,10 +29,7 @@ describe("Home", () => {
         expect(currentUrl).toContain("get-started");
     });
   
-    it("Click logo botton & assert URL DOES NOT contains get-started text", async () => {
-        // Open About page
-        await HomePage.navigate();
-        
+    it("Click logo botton & assert URL DOES NOT contains get-started text", async () => {        
         await HomePage.imageLogo.click();
 
         // Assert URL contains get-started text
@@ -42,9 +38,6 @@ describe("Home", () => {
     });
   
     it("Find heading element & assert the text", async () => {
-        // Open About page
-        await HomePage.navigate();
-        
         // find heading element
         const headingElement = await HomePage.hedingElement;
 
@@ -56,7 +49,5 @@ describe("Home", () => {
         
         // Another form is using the function toHaveText
         await expect(headingElement).toHaveText("Think different. Make different.");
-        
-
     });
 });
