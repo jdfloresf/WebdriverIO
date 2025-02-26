@@ -1,3 +1,5 @@
+import contacPage from "../pages/contact-page";
+
 /* 
     - Fill the inpus fields and submit form
     - Assert the seccess message
@@ -6,29 +8,26 @@
 
 describe('Fill form and submit', () => {
     it('Fill the form, submint & assert success message', async () => {
-        await browser.url('/');
-
         // Navegando a la pagina Contacto
-        await $('#menu-item-493').click()
+        await contacPage.navigate('contact')
 
         // Enviando valores al formulario
-        // Name field
-        await $('#evf-277-field_ys0GeZISRs-1').setValue("Juan")
+        await contacPage.sendKeys('#evf-277-field_ys0GeZISRs-1', 'Juan'); //M
         // Email fiel
-        await $('#evf-277-field_LbH5NxasXM-2').setValue("juan@prueba.com")
+        await contacPage.sendKeys('#evf-277-field_LbH5NxasXM-2', 'juan@prueba.com');
         // Phone field
-        await $('#evf-277-field_66FR384cge-3').setValue("1234567890")
+        await contacPage.sendKeys('#evf-277-field_66FR384cge-3', '1234567890');
         // Message field
-        await $('#evf-277-field_yhGx3FOwr2-4').setValue("Hola esto es una prueba")
+        await contacPage.sendKeys('#evf-277-field_yhGx3FOwr2-4', 'Hola esto es una prueba');
         
         // debug
         // browser.debug();
         
         // Submit
-        await $('#evf-submit-277').click();
+        await contacPage.onClick();
 
         // Thanks for contacting us! We will be in touch with you shortly	
-        await expect($('.everest-forms-notice')).toBeDisplayed();
-        await expect($('.everest-forms-notice')).toHaveText('Thanks for contacting us! We will be in touch with you shortly')
+        await expect(contacPage.alert).toBeDisplayed();
+        await expect(contacPage.alert).toHaveText('Thanks for contacting us! We will be in touch with you shortly')
     });
 });

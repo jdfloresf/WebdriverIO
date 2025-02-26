@@ -1,3 +1,5 @@
+import blogPage from "../pages/blog-page";
+
 /* 
     - Get the list of Recent Post
     - Assert the text lenght of each list item > 10 characteres
@@ -8,9 +10,9 @@
 describe('Blog page', () => {
     var recentPost;
     it('Get the list of all Recent Post', async () => {
-        await browser.url('/blog/');
+        await blogPage.navigate('blog');
 
-        recentPost = await $$('#recent-posts-3 li')
+        recentPost = await blogPage.recentPost;
 
         console.log(recentPost)
     });

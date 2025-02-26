@@ -1,15 +1,20 @@
-describe("Home", () => {
-    it("Get title", async () => {
-        // Open de URL
-        await browser.url("https://practice.sdetunicorns.com/");
+import HomePage from "../pages/home-page";
 
+describe("Home", () => {
+    beforeEach(async () => {
+        // Open de URL
+        await HomePage.navigate();
+    });
+    
+    it("Get title", async () => {
+        
         // Assert title
         await expect(browser).toHaveTitle("Practice E-Commerce Site – SDET Unicorns");
     });
     
     it("Open About Page & assert URL", async () => {
         // Open About page
-        await browser.url("https://practice.sdetunicorns.com/about");
+        await HomePage.navigate("about");
 
         // Assert URL
         await expect(browser).toHaveUrl("https://practice.sdetunicorns.com/about/");
@@ -17,8 +22,8 @@ describe("Home", () => {
     
     it("Click get started botton & assert URL", async () => {
         // Open About page
-        await browser.url("https://practice.sdetunicorns.com/");
-        await $('#get-started').click();
+        await HomePage.navigate();
+        await HomePage.btnGetStarted.click();
 
         // Assert URL contains get-started text
         const currentUrl = await browser.getUrl();
@@ -27,9 +32,9 @@ describe("Home", () => {
   
     it("Click logo botton & assert URL DOES NOT contains get-started text", async () => {
         // Open About page
-        await browser.url("https://practice.sdetunicorns.com/");
+        await HomePage.navigate();
         
-        await $('//img[@alt="Practice E-Commerce Site"]').click();
+        await HomePage.imageLogo.click();
 
         // Assert URL contains get-started text
         const currentUrl = await browser.getUrl();
@@ -38,10 +43,10 @@ describe("Home", () => {
   
     it("Find heading element & assert the text", async () => {
         // Open About page
-        await browser.url("https://practice.sdetunicorns.com/");
+        await HomePage.navigate();
         
         // find heading element
-        const headingElement = await $('.elementor-widget-container h1');
+        const headingElement = await HomePage.hedingElement;
 
         // Get the text
         // const headingText = await headingElement.getText();

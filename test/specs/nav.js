@@ -1,8 +1,10 @@
+import homePage from "../pages/home-page";
+
 describe('Navidation Menu', () => {
     it('Get the text of all menu items & assert them - using wait commands', async () => {
         // browser.pause(1000)
         
-        await browser.url('/');
+        await homePage.navigate();
 
         const expectedLinks = [
             "Home",
@@ -24,11 +26,11 @@ describe('Navidation Menu', () => {
 
         // wait until tbe Home text is displayed on the screen
         await browser.waitUntil(async function() {
-            const homeText = await $('#zak-primary-menu li').getText();
+            const homeText = await homePage.navComponent.firstNavMenuList.getText()
             return homeText === 'Home';
         }, { timeoutMsg: "Could not verify the Home test from #zak-primary-menu li"});
 
-        const navLinks = await $$('#zak-primary-menu li[id*=menu]');
+        const navLinks = await homePage.navComponent.linkNavMenu;
 
         for (const link of navLinks) {
             actualLinks.push(await link.getText());
