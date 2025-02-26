@@ -29,6 +29,6 @@ describe('Fill form and submit', () => {
 
         // Thanks for contacting us! We will be in touch with you shortly	
         await expect(contacPage.alert).toBeDisplayed();
-        await expect(contacPage.alert).toHaveText('Thanks for contacting us! We will be in touch with you shortly')
+        await expect(contacPage.alert).toHaveText('Thanks for contacting us! We will be in touch with you shortly');
     });
 });
