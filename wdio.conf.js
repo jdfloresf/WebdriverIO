@@ -5,8 +5,8 @@ export const config = {
     // ====================
     // BrowserStack Configuration
     // ====================
-    user: process.env.BROWSERSTACK_USERNAME,
-    key: process.env.BROWSERSTACK_ACCESS_KEY,
+    // user: process.env.BROWSERSTACK_USERNAME,
+    // key: process.env.BROWSERSTACK_ACCESS_KEY,
     //
     // ====================
     // Runner Configuration
@@ -30,23 +30,15 @@ export const config = {
     //
     specs: [
         // ToDo: define location for spec files here
-        './test/specs/**/*.js'
+        './amazon/specs/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
-        './test/specs/**/iframe.js',
-        './test/specs/**/upload.js'
     ],
     // Define suites
     suites: {
-        smoke: [
-            './test/specs/**/home.js',
-            './test/specs/**/contact.js'
-        ],
-        component: [
-            './test/specs/**/nav.js'
-        ]
+
     }, 
 
     //
@@ -75,9 +67,6 @@ export const config = {
         {
             browserName: 'chrome'
         },
-        {
-            browserName: 'Edge'
-        }
 ],
 
     //
@@ -111,7 +100,7 @@ export const config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'https://practice.sdetunicorns.com',
+    baseUrl: 'https://www.amazon.com.mx/',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,

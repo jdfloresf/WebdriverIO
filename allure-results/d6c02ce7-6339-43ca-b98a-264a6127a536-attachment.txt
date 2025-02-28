@@ -1,4 +1,0 @@
-{
-  "using": "css selector",
-  "value": "#zak-primary-menu li[id*=menu]"
-}

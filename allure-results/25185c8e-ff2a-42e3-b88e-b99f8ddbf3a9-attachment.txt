@@ -1,4 +1,0 @@
-{
-  "using": "css selector",
-  "value": "#evf-277-field_66FR384cge-3"
-}
