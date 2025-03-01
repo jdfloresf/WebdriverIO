@@ -1,0 +1,5 @@
+{
+  "error": "no such element",
+  "message": "no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\".a-color-state.a-text-bold\"}\n  (Session info: chrome=133.0.6943.54)",
+  "stacktrace": "\tGetHandleVerifier [0x00007FF60D222EC5+28789]\n\t(No symbol) [0x00007FF60D18F870]\n\t(No symbol) [0x00007FF60D028F9A]\n\t(No symbol) [0x00007FF60D07F236]\n\t(No symbol) [0x00007FF60D07F46C]\n\t(No symbol) [0x00007FF60D0D29F7]\n\t(No symbol) [0x00007FF60D0A725F]\n\t(No symbol) [0x00007FF60D0CF6C3]\n\t(No symbol) [0x00007FF60D0A6FF3]\n\t(No symbol) [0x00007FF60D06FF0E]\n\t(No symbol) [0x00007FF60D071193]\n\tGetHandleVerifier [0x00007FF60D56D5FD+3479469]\n\tGetHandleVerifier [0x00007FF60D5871A3+3584851]\n\tGetHandleVerifier [0x00007FF60D57C44D+3540477]\n\tGetHandleVerifier [0x00007FF60D2E8B6A+838938]\n\t(No symbol) [0x00007FF60D19A4EF]\n\t(No symbol) [0x00007FF60D196954]\n\t(No symbol) [0x00007FF60D196AF6]\n\t(No symbol) [0x00007FF60D186499]\n\tBaseThreadInitThunk [0x00007FFFB770DBE7+23]\n\tRtlUserThreadStart [0x00007FFFB83C5A6C+44]\n"
+}

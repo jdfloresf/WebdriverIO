@@ -16,7 +16,7 @@ pipeline {
 
         stage('Ejecutar Pruebas') {
             steps {
-                bat 'set BROWSERSTACK_USERNAME=%BROWSERSTACK_USERNAME% && set BROWSERSTACK_ACCESS_KEY=%BROWSERSTACK_ACCESS_KEY% && npx wdio'
+                bat 'set user=%BROWSERSTACK_USERNAME% && set key=%BROWSERSTACK_ACCESS_KEY% && npx wdio'
             }
         }
 
