@@ -15,6 +15,11 @@ describe("Cart Flow", () => {
         await searchButton.click();
     });
 
+    it("Access URL, verify URL and title", async () => {
+        await expect(browser).toHaveUrl(expect.stringContaining('amazon'));
+        await expect(browser).toHaveTitle(expect.stringContaining('Amazon'));
+    });
+
 
     it("Add to cart", async () => {
         
