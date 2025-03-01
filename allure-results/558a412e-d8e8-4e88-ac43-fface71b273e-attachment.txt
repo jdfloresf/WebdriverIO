@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": ".sc-quantity-stepper button[            aria-label=\"Aumentar la cantidad en uno\"]"
+}

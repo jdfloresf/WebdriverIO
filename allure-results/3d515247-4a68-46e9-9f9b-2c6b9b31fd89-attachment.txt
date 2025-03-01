@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "#nav-tools a[aria-label=\"1 artículo en el carrito\"]"
+}

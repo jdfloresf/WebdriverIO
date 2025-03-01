@@ -1,12 +1,9 @@
-import allure from 'allure-commandline';
-import 'dotenv/config';
-
 export const config = {
     // ====================
     // BrowserStack Configuration
     // ====================
-    // user: process.env.BROWSERSTACK_USERNAME,
-    // key: process.env.BROWSERSTACK_ACCESS_KEY,
+    user: process.env.BROWSERSTACK_USERNAME,
+    key: process.env.BROWSERSTACK_ACCESS_KEY,
     //
     // ====================
     // Runner Configuration
@@ -63,10 +60,15 @@ export const config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [
-        {
-            browserName: 'chrome'
-        },
+    capabilities: [{
+        browserName: 'chrome',
+        'goog:chromeOptions': {
+            args: [
+                '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                '--disable-blink-features=AutomationControlled'
+            ]
+        }
+    },
 ],
 
     //
@@ -247,11 +249,11 @@ export const config = {
      * @param {boolean} result.passed    true if test has passed, otherwise false
      * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    afterTest: async function(test, context, { error }) {
-        if (error) {
-            await browser.takeScreenshot();
-        }
-    },
+    // afterTest: async function(test, context, { error }) {
+    //     if (error) {
+    //         await browser.takeScreenshot();
+    //     }
+    // },
 
 
     /**

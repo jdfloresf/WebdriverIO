@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "#corePriceDisplay_desktop_feature_div             span[class=\"a-price-whole\"]"
+}

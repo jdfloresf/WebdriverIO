@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "#NATC_SMART_WAGON_CONF_MSG_SUCCESS h1"
+}

@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "#sw-atc-buy-box span[class=\"a-price-whole\"]"
+}
