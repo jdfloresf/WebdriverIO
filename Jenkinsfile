@@ -30,7 +30,7 @@ pipeline {
 
         stage('Generar Reporte') {
             steps {
-                bat 'npx allure generate allure-results'
+                bat 'npx allure generate allure-results --clean -o allure-report'
             }
         }
     }
@@ -39,6 +39,8 @@ pipeline {
         always {
             script {
                 echo "📌 Guardando reportes de Allure..."
+                archiveArtifacts 'allure-results/**'
+                archiveArtifacts 'allure-report/**'
             }
         }
         success {
