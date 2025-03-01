@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": ".left-pane-results-container"
+}

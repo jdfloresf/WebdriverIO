@@ -16,7 +16,7 @@ describe("Amazon Home Page", () => {
     it("Search content and verify text", async () => {
 
         const searchInput = $('input[type="text"]');
-        const searchButton = $('input[value="Ir"]');
+        const searchButton = $('#nav-search-submit-text input');
         const expectedSearchText = $('.a-color-state.a-text-bold');
         
         // Search macbook 

@@ -65,8 +65,20 @@ export const config = {
         'goog:chromeOptions': {
             args: [
                 '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                '--disable-blink-features=AutomationControlled'
-            ]
+                '--disable-blink-features=AutomationControlled',
+                '--disable-dev-shm-usage',  // Reduce problemas de sandboxing en entornos virtualizados
+                '--disable-gpu',
+                '--disable-features=IsolateOrigins,site-per-process',  // Evita algunas restricciones de origen
+                '--disable-site-isolation-trials',  // Reduce restricciones de navegación
+                '--remote-debugging-port=9222',  // Puede ayudar a evitar detección
+                '--disable-web-security', // Desactiva algunas restricciones de CORS (usa con precaución)
+            ],
+            excludeSwitches: [
+                'enable-automation'  // Elimina la bandera "Este navegador está siendo controlado por software de prueba automatizado"
+            ],
+            prefs: {
+                'profile.managed_default_content_settings.images': 2  // Desactiva la carga de imágenes (opcional)
+            }
         }
     },
 ],
