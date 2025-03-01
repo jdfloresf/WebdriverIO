@@ -49,5 +49,10 @@ pipeline {
         failure {
             echo '❌ Error en el pipeline, revisa los logs.'
         }
+        always {
+            allure([
+                results: [[path: 'allure-results']]
+            ])
+        }
     }
 }
