@@ -11,7 +11,6 @@ describe("Amazon Home Page", () => {
     it("Access URL, verify URL and title", async () => {
         await expect(browser).toHaveUrl(expect.stringContaining('amazon'));
         await expect(browser).toHaveTitle(expect.stringContaining('Amazon'));
-
     });
 
     it("Search content and verify text", async () => {
@@ -27,12 +26,12 @@ describe("Amazon Home Page", () => {
         
         await expect(expectedSearchText).toHaveText(
             expect.stringContaining('macbook'));
-        });
+    });
         
-        it("Obtain the suggestion list, click the first one and assert the text", async () => {
-            const searchInput = $('input[type="text"]');
-            await searchInput.setValue("8bitdo");
-            const expectedSearchText = $('.a-color-state.a-text-bold');
+    it("Obtain the suggestion list, click the first one and assert the text", async () => {
+        const searchInput = $('input[type="text"]');
+        await searchInput.setValue("8bitdo");
+        const expectedSearchText = $('.a-color-state.a-text-bold');
 
         const suggestionPane = await $('.left-pane-results-container');
         const firstSearchResult = await suggestionPane.$('div');
@@ -44,8 +43,7 @@ describe("Amazon Home Page", () => {
         await firstSearchResult.click();
 
         await expect(expectedSearchText).toHaveText(
-            expect.stringContaining(expectedText))
+            expect.stringContaining(expectedText));
 
     });
-
 });
