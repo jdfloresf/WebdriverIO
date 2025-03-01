@@ -42,17 +42,15 @@ pipeline {
                 archiveArtifacts 'allure-results/**'
                 archiveArtifacts 'allure-report/**'
             }
+            allure([
+                results: [[path: 'allure-results']]
+            ])
         }
         success {
             echo '✅ Pipeline ejecutado con éxito!'
         }
         failure {
             echo '❌ Error en el pipeline, revisa los logs.'
-        }
-        always {
-            allure([
-                results: [[path: 'allure-results']]
-            ])
         }
     }
 }
