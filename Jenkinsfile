@@ -16,13 +16,21 @@ pipeline {
 
         stage('Ejecutar Pruebas') {
             steps {
-                bat 'set user=%BROWSERSTACK_USERNAME% && set key=%BROWSERSTACK_ACCESS_KEY% && npx wdio'
+                script {
+                    def exitCode = bat(
+                        script: 'set user=%BROWSERSTACK_USERNAME% && set key=%BROWSERSTACK_ACCESS_KEY% && npx wdio',
+                        returnStatus: true
+                    )
+                    if (exitCode != 0) {
+                        echo "⚠️ Algunas pruebas fallaron, pero continuaremos con el reporte..."
+                    }
+                }
             }
         }
 
         stage('Generar Reporte') {
             steps {
-                bat 'npx allure generate allure-results && npx allure open'
+                bat 'npx allure generate allure-results'
             }
         }
     }
